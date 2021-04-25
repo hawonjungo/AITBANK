@@ -38,7 +38,11 @@ public class Menu extends JFrame {
 	private JPanel contentPane;
 	private JTextField txtUserId ;
 	private JPasswordField txtPassword;
-	
+	public static int id;
+
+    	public static int getTxtUserId() {
+        return id;
+    	}
 
 
 
@@ -286,10 +290,7 @@ public class Menu extends JFrame {
 //		String text = txtUserId.getText();
 //		int id = Integer.parseInt(text);	
 //			
-//		public  int getTxtUserId() {		
-//			return id;
-//		}
-//		
+		
 		JButton btn00 = new JButton("00");
 		btn00.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
