@@ -61,6 +61,7 @@ public abstract class Account {
 	public void deposit(double amount) {
 		if(amount>0) {
 			setBalance(getBalance() + amount);
+			JOptionPane.showMessageDialog(null, "Deposit success !" + getBalance());
 		}
 		else {
 			JOptionPane.showMessageDialog(null, "Invalid value !");

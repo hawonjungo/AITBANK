@@ -8,10 +8,12 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import Account.Account;
 import Account.Cheque;
 import Account.Fixed;
 import Account.NetSaving;
 import Account.Saving;
+import User.User;
 
 import javax.swing.JTextArea;
 import javax.swing.JButton;
@@ -89,8 +91,6 @@ public class Menu extends JFrame {
 		
 		
 		
-		
-		
 		setResizable(false);
 		setTitle("AITBANK ATM");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -102,9 +102,7 @@ public class Menu extends JFrame {
 		
 		
 		
-		
-		
-		
+	
 		
 		JButton btn1 = new JButton("1");
 		btn1.addActionListener(new ActionListener() {
@@ -566,10 +564,15 @@ public class Menu extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				String selectAccount = String.valueOf(cbBoxSelectAccount.getSelectedItem());
 				if(selectAccount.equals("Saving")) {
-					
-					if(txtDeposit.getText().length() !=0) {
+					User user = new User();
+					Saving acc = new Saving();
+					if(user.checkId(Integer.parseInt(txtUserId.getText()))) {
+						if(txtDeposit.getText().length() !=0) {
+							acc.deposit(Double.parseDouble(txtDeposit.getText()));
+						}
 						
 					}
+
 				}
 				if(selectAccount.equals("Net Saving")) {
 					
