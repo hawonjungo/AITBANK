@@ -17,18 +17,6 @@ public class Cheque extends Account implements WithdrawalLimit{
 
 
 	@Override
-	public void withdrawal(double amount) {
-		checkCash();
-		if(getBalance() > amount) {
-			setBalance(getBalance() - amount);
-		}
-		else
-			System.out.println("The balance is not enough");
-		
-		
-	}
-
-	@Override
 	public void calculateInterestRate() {
 		// TODO Auto-generated method stub
 		

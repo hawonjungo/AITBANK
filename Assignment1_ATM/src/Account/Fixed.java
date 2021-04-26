@@ -35,17 +35,7 @@ public class Fixed extends Account implements WithdrawalLimit{
 		this.rate = rate;
 		this.isBreakContract = isBreakContract;
 	}
-	@Override
-	public void withdrawal(double amount) {	
-		checkCash();
-		calculateContract();
-		if(getBalance() > amount) {
-			setBalance(getBalance() - amount);
-		}
-		else
-			System.out.println("The balance is not enough");
-		
-	}
+
 	
 	public void calculateContract() {
 		if (isBreakContract == true) {

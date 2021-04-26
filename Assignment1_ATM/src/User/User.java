@@ -2,6 +2,7 @@ package User;
 
 import Account.Account;
 import Bank.AITBank;
+import gUI.Menu;
 
 public class User {
 	private int userId;
@@ -39,39 +40,14 @@ public class User {
 	static User[] user = new User[3];
 	public static void UserAccount() {
 		user[0] = new User(1111,2222,"Jun");
-		user[1] = new User(0007,0000,"GoGo");
+		user[1] = new User(1007,0000,"GoGo");
 		user[3] = new User(7777,9999,"JunGo");
 	}
 	public static User[] getUser() {
 		return user;
 	}
 	
-//	Account[] account = AITBank.getAccount();
-	
-	
-	public boolean checkId(int accountId) {
-		AITBank bank = new AITBank();
-		
-		Account[] _tmpAccount = bank.getAccount();
-		for(int i = 0; i<3;i++) {
-			if(accountId == _tmpAccount[i].getId()) {
-				return true;
-			} 
-		}
-		return false;
-	}
-//	public void checkId() {
-//
-//		for(int i = 0; i<10;i++) {
-//			if(Menu.getTxtUserId() == account[i].getId()) {
-//				
-//			}
-//	}
-//		
-//			
-//	}
-	
-		
+	Account[] account = AITBank.getAccount();
 	
 	
 }

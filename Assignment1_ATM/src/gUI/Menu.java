@@ -13,6 +13,7 @@ import Account.Cheque;
 import Account.Fixed;
 import Account.NetSaving;
 import Account.Saving;
+import Bank.AITBank;
 import User.User;
 
 import javax.swing.JTextArea;
@@ -43,8 +44,18 @@ public class Menu extends JFrame {
     	public static int getTxtUserId() {
         return id;
     	}
-
-
+    	
+    	
+    	Account[] account = AITBank.getAccount();
+    	
+    	public void checkId() {
+    		for(int i=0; i<10;i++) {
+    			if(Menu.getTxtUserId() == account[i].getId()) {
+    				
+    			}
+    		}
+    		
+    	}
 
 
 	
@@ -52,6 +63,7 @@ public class Menu extends JFrame {
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
+		AITBank.AITBank();
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -67,16 +79,7 @@ public class Menu extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	//Trying to crate switch Panel method
-//	public void switchPanel(JPanel panel) {
-//		getLayeredPane().removeAll();
-//		getLayeredPane().add(panel);
-//		getLayeredPane().repaint();
-//		getLayeredPane().revalidate();
-//	
-//		
-//		
-//	}
+
 	
 	Saving sav = new Saving();
 	NetSaving net = new NetSaving();
@@ -85,6 +88,7 @@ public class Menu extends JFrame {
 	JTextArea txtAreaSaving = new JTextArea();
 	private JTextField txtDeposit;
 	public int focus = 1;
+	private JTextField txtWithdraw;
 	
 	
 	
@@ -120,6 +124,9 @@ public class Menu extends JFrame {
 				if(focus ==3) {
 					txtDeposit.setText(txtDeposit.getText()+"1");
 				}
+				if(focus ==4) {
+					txtWithdraw.setText(txtWithdraw.getText()+"1");
+				}
 				
 			
 				
@@ -140,6 +147,9 @@ public class Menu extends JFrame {
 				if(focus ==3) {
 					txtDeposit.setText(txtDeposit.getText()+"4");
 				}
+				if(focus ==4) {
+					txtWithdraw.setText(txtWithdraw.getText()+"4");
+				}
 			}
 		});
 		btn4.setBounds(10, 242, 71, 23);
@@ -153,6 +163,12 @@ public class Menu extends JFrame {
 				}
 				if(focus ==2) {
 					txtPassword.setText(txtPassword.getText()+"7");
+				}
+				if(focus ==3) {
+					txtDeposit.setText(txtDeposit.getText()+"7");
+				}
+				if(focus ==4) {
+					txtWithdraw.setText(txtWithdraw.getText()+"7");
 				}
 			}
 		});
@@ -168,6 +184,12 @@ public class Menu extends JFrame {
 				if(focus ==2) {
 					txtPassword.setText(txtPassword.getText()+"2");
 				}
+				if(focus ==3) {
+					txtDeposit.setText(txtDeposit.getText()+"2");
+				}
+				if(focus ==4) {
+					txtWithdraw.setText(txtWithdraw.getText()+"2");
+				}
 			}
 		});
 		btn2.setBounds(91, 208, 71, 23);
@@ -181,6 +203,12 @@ public class Menu extends JFrame {
 				}
 				if(focus ==2) {
 					txtPassword.setText(txtPassword.getText()+"5");
+				}
+				if(focus ==3) {
+					txtDeposit.setText(txtDeposit.getText()+"5");
+				}
+				if(focus ==4) {
+					txtWithdraw.setText(txtWithdraw.getText()+"5");
 				}
 			}
 		});
@@ -196,6 +224,12 @@ public class Menu extends JFrame {
 				if(focus ==2) {
 					txtPassword.setText(txtPassword.getText()+"8");
 				}
+				if(focus ==3) {
+					txtDeposit.setText(txtDeposit.getText()+"8");
+				}
+				if(focus ==4) {
+					txtWithdraw.setText(txtWithdraw.getText()+"8");
+				}
 			}
 		});
 		btn8.setBounds(91, 276, 71, 23);
@@ -209,6 +243,12 @@ public class Menu extends JFrame {
 				}
 				if(focus ==2) {
 					txtPassword.setText(txtPassword.getText()+"3");
+				}
+				if(focus ==3) {
+					txtDeposit.setText(txtDeposit.getText()+"3");
+				}
+				if(focus ==4) {
+					txtWithdraw.setText(txtWithdraw.getText()+"3");
 				}
 			}
 		});
@@ -224,6 +264,12 @@ public class Menu extends JFrame {
 				if(focus ==2) {
 					txtPassword.setText(txtPassword.getText()+"6");
 				}
+				if(focus ==3) {
+					txtDeposit.setText(txtDeposit.getText()+"6");
+				}
+				if(focus ==4) {
+					txtWithdraw.setText(txtWithdraw.getText()+"6");
+				}
 			}
 		});
 		btn6.setBounds(172, 242, 71, 23);
@@ -238,6 +284,12 @@ public class Menu extends JFrame {
 				if(focus ==2) {
 					txtPassword.setText(txtPassword.getText()+"9");
 				}
+				if(focus ==3) {
+					txtDeposit.setText(txtDeposit.getText()+"9");
+				}
+				if(focus ==4) {
+					txtWithdraw.setText(txtWithdraw.getText()+"9");
+				}
 			}
 		});
 		btn9.setBounds(172, 276, 71, 23);
@@ -251,6 +303,7 @@ public class Menu extends JFrame {
 				txtUserId.setText("");
 				txtPassword.setText("");
 				txtDeposit.setText("");
+				txtWithdraw.setText("");
 			}
 		});
 		btnClear.setBounds(299, 242, 135, 23);
@@ -264,6 +317,12 @@ public class Menu extends JFrame {
 				}
 				if(focus ==2) {
 					txtPassword.setText(txtPassword.getText()+"0");
+				}
+				if(focus ==3) {
+					txtDeposit.setText(txtDeposit.getText()+"0");
+				}
+				if(focus ==4) {
+					txtWithdraw.setText(txtWithdraw.getText()+"0");
 				}
 			}
 		});
@@ -279,17 +338,19 @@ public class Menu extends JFrame {
 				if(focus ==2) {
 					txtPassword.setText(txtPassword.getText()+".");
 				}
+				if(focus ==3) {
+					txtDeposit.setText(txtDeposit.getText()+".");
+				}
+				if(focus ==4) {
+					txtWithdraw.setText(txtWithdraw.getText()+".");
+				}
 			}
 		});
 		btnDot.setBounds(91, 310, 71, 23);
 		contentPane.add(btnDot);
 		
-//		// Dua dam nay xuong duoi, sau khi  khoi tao textField
-//		
-//		// 2 cai nay nhet vao 1 ham, tao 1 su kien, gan ham nay vao
-//		String text = txtUserId.getText();
-//		int id = Integer.parseInt(text);	
-//			
+
+		
 		
 		JButton btn00 = new JButton("00");
 		btn00.addActionListener(new ActionListener() {
@@ -299,6 +360,12 @@ public class Menu extends JFrame {
 				}
 				if(focus ==2) {
 					txtPassword.setText(txtPassword.getText()+"00");
+				}
+				if(focus ==3) {
+					txtDeposit.setText(txtDeposit.getText()+"00");
+				}
+				if(focus ==4) {
+					txtWithdraw.setText(txtWithdraw.getText()+"00");
 				}
 				String text = txtUserId.getText();
 				int id = Integer.parseInt(text);
@@ -351,36 +418,7 @@ public class Menu extends JFrame {
 		txtDeposit.setBounds(130, 77, 195, 45);
 		txtDeposit.setColumns(10);
 		
-		//--------- Set focus on TextField -------------------------------
-		 
-		txtUserId.addMouseListener(new MouseAdapter(){
-            @Override
-            public void mouseClicked(MouseEvent e){
-            		focus = 1;
-            		txtUserId.setEnabled(true);
-            		txtPassword.setEnabled(false);
-            		
-            		}
-        });
-		txtPassword.addMouseListener(new MouseAdapter() {
-			@Override
-            public void mouseClicked(MouseEvent e){
-				focus = 2;
-				txtUserId.setEnabled(false);
-				txtPassword.setEnabled(true);
-				
-    			
-			}
-
-		});
-		txtDeposit.addMouseListener(new MouseAdapter() {
-			@Override
-            public void mouseClicked(MouseEvent e){
-				focus = 3;
-				txtDeposit.setEnabled(true);
-				
-			}
-		});
+	
 		
 		
 		JPanel panelMenu = new JPanel();
@@ -395,12 +433,6 @@ public class Menu extends JFrame {
 		
 	
 		
-		
-	
-		
-		JButton btnWithdraw_1 = new JButton("Withdraw");
-		btnWithdraw_1.setBounds(126, 139, 155, 23);
-		panelMenu.add(btnWithdraw_1);
 		
 		JPanel panelAccount = new JPanel();
 		panelAccount.setBackground(new Color(204, 255, 255));
@@ -424,7 +456,7 @@ public class Menu extends JFrame {
 		labWelcome.setFont(new Font("Tahoma", Font.BOLD, 18));
 		labWelcome.setBounds(83, 11, 238, 23);
 		panelMenu.add(labWelcome);
-		labWelcome.setText("Hello "+txtUserId.getText());		//Hello to user !!
+		labWelcome.setText("Hello");		
 		
 		
 		JLabel lblNewLabel_4 = new JLabel("Account");
@@ -445,11 +477,36 @@ public class Menu extends JFrame {
 				layeredPane.add(panelDisplayInfo);
 				layeredPane.repaint();
 				layeredPane.revalidate();
-				txtAreaSaving.setText("======================_Account Saving_======================\n"+
-						"Daily Rate: "+ sav.getRate()+"%\n"+
-						"Limit Witdraw: $"+sav.getLimit()+
-						"\nBalance: $"+sav.getBalance()
-						);
+				
+				boolean isSaving = false;
+				try {
+					for(int i=0; i<10;i++) {
+		    			if(Menu.getTxtUserId() == account[i].getId()) {
+		    				if(account[i].getAccType().equals("Saving") ) {
+		    					txtAreaSaving.setText("======================_Account Saving_======================\n"+
+		    							"Daily Rate: "+ ((Saving)account[i]).getRate()+"%\n"+
+		    							"Limit Witdraw: $"+((Saving)account[i]).getLimit()+
+		    							"\nBalance: $"+account[i].getBalance()
+		    							);
+		    					isSaving = true;
+		    					break;
+		    				}
+		    			}		  			    				
+		    			
+		    		}
+				}catch(NullPointerException ex) {
+					
+				}
+				
+				if(isSaving ==false) {
+					txtAreaSaving.setText("======================_Account Saving_======================\n"+
+							"\n\t This account currently not available !"+
+							"\n\n\t Please contact to the Bank to open this account !"
+							);
+				}
+				
+				
+				
 			}
 		});
 		btnNewButton_1.setBounds(66, 49, 139, 39);
@@ -462,11 +519,41 @@ public class Menu extends JFrame {
 				layeredPane.add(panelDisplayInfo);
 				layeredPane.repaint();
 				layeredPane.revalidate();
-				txtAreaSaving.setText("======================_Account Net Saving_======================\n"+
-						"Monthy Rate: "+ net.getRate()+"%\n"+
-						"Limit Witdraw: $"+net.getLimit()+
-						"\nBalance: $"+net.getBalance()
-						);
+				
+				boolean isNetSaving = false;
+				
+				try {
+					for(int i=0; i<10;i++) {
+		    			if(Menu.getTxtUserId() == account[i].getId()) {
+		    				if(account[i].getAccType().equals("Net Saving") ) {
+		    					txtAreaSaving.setText("======================_Account Net Saving_======================\n"+
+		    							"Daily Rate: "+ ((NetSaving)account[i]).getRate()+"%\n"+
+		    							"Limit Witdraw: $"+((NetSaving)account[i]).getLimit()+
+		    							"\nBalance: $"+account[i].getBalance()
+		    							);
+		    					isNetSaving = true;
+		    					break;
+		    				}
+		    			}
+		    			
+		    		}
+				}catch(NullPointerException ex) {
+					
+				}
+				
+				
+				
+				
+				if(isNetSaving == false) {
+					txtAreaSaving.setText("======================_Account Net Saving_======================\n"+
+							"\n\t This account currently not available !"+
+							"\n\n\t Please contact to the Bank to open this account !"
+							);
+				}
+				
+				
+				
+				
 			}
 		});
 		btnNewButton_1_1.setBounds(66, 99, 139, 39);
@@ -479,12 +566,39 @@ public class Menu extends JFrame {
 				layeredPane.add(panelDisplayInfo);
 				layeredPane.repaint();
 				layeredPane.revalidate();
-				txtAreaSaving.setText("======================_Account Cheque_======================\n"+
-						
-						
-						"\nBalance: $"+che.getBalance()
-						);
 				
+				boolean isCheque = false;
+				
+				
+				try {
+					for(int i=0; i<10;i++) {
+						if(Menu.getTxtUserId() == account[i].getId()) {
+		    				if(account[i].getAccType().equals("Cheque") ) {
+		    					txtAreaSaving.setText("======================_Account Cheque_======================\n"+
+		    							
+		    							"\nBalance: $"+account[i].getBalance()
+		    							);
+		    					isCheque = true;
+		    					break;
+		    				}	    				
+						}
+						
+				
+		    			
+		    		}
+				}catch(NullPointerException ex) {
+					
+				}
+				
+				if(isCheque == false) {
+					txtAreaSaving.setText("======================_Account Cheque_======================\n"+
+							"\n\t This account currently not available !"+
+							"\n\n\t Please contact to the Bank to open this account !"
+							);
+    				
+			
+				
+				}
 			}
 		});
 		btnNewButton_1_2.setBounds(215, 49, 139, 39);
@@ -497,11 +611,41 @@ public class Menu extends JFrame {
 				layeredPane.add(panelDisplayInfo);
 				layeredPane.repaint();
 				layeredPane.revalidate();
-				txtAreaSaving.setText("======================_Account Fixed_======================\n"+
-						"Interest: "+ fix.getRate()+"%\n"+
+				
+				
+				boolean isFixed = false;
+				
+				try {
+					for(int i=0; i<10;i++) {
+						if(Menu.getTxtUserId() == account[i].getId()) {
+		    				if(account[i].getAccType().equals("Fixed") ) {
+		    					txtAreaSaving.setText("======================_Account Fixed_======================\n"+
+		    							"Interest: "+ ((Fixed)account[i]).getRate()+"%\n"+
+		    							"\nBalance: $"+account[i].getBalance()
+		    							);
+		    					isFixed = true;
+		    					break;
+		    				}	    				
+						}
 						
-						"\nBalance: $"+fix.getBalance()
-						);
+		    			
+		    		}
+				}catch(NullPointerException ex) {
+					
+				}
+				
+				
+				
+				if(isFixed == false) {
+					txtAreaSaving.setText("======================_Account Fixed_======================\n"+
+							"\n\t This account currently not available !"+
+							"\n\n\t Please contact to the Bank to open this account !"
+							);
+    				
+			
+				
+				}
+				
 			}
 		});
 		btnNewButton_1_3.setBounds(215, 99, 139, 39);
@@ -540,7 +684,7 @@ public class Menu extends JFrame {
 		panelDisplayInfo.add(btnNewButton_3);
 		
 		JPanel panelDeposit = new JPanel();
-		panelDeposit.setBackground(new Color(204, 255, 255));
+		panelDeposit.setBackground(new Color(102, 204, 255));
 		layeredPane.add(panelDeposit, "name_431809381031100");
 		panelDeposit.setLayout(null);
 		// enable deposit text field
@@ -563,26 +707,103 @@ public class Menu extends JFrame {
 		JButton btnAccDeposit = new JButton("Deposit");
 		btnAccDeposit.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+			
 				String selectAccount = String.valueOf(cbBoxSelectAccount.getSelectedItem());
 				if(selectAccount.equals("Saving")) {
-					User user = new User();
-					Saving acc = new Saving();
-					if(user.checkId(Integer.parseInt(txtUserId.getText()))) {
-						if(txtDeposit.getText().length() !=0) {
-							acc.deposit(Double.parseDouble(txtDeposit.getText()));
-						}
-						
+					boolean isSaving = false;
+					if(txtDeposit.getText().length() !=0) {						
+						try {
+							for(int i=0; i<10;i++) {
+				    			if(Menu.getTxtUserId() == account[i].getId()) {
+				    				if(account[i].getAccType() == selectAccount ) {
+				    					account[i].deposit(Double.parseDouble(txtDeposit.getText()));
+				    					isSaving = true;
+				    					break;
+				    				}
+				    			}
+				    			
+							}
+						}catch(NullPointerException ex) {
+							
+						}					
+									
+						if(isSaving ==false)
+						JOptionPane.showMessageDialog(btnAccDeposit, "You don't have this type account !");
 					}
-
 				}
+				
+					
+				
+				
+				
 				if(selectAccount.equals("Net Saving")) {
+					boolean isNet = false;
+					if(txtDeposit.getText().length() !=0) {
+						try {
+						for(int i=0; i<10;i++) {
+			    			if(Menu.getTxtUserId() == account[i].getId()) {
+			    				if(account[i].getAccType() == selectAccount ) {
+			    					account[i].deposit(Double.parseDouble(txtDeposit.getText()));
+			    					isNet = true;
+			    					break;
+			    				}			    				
+			    			}
+						}
+					}catch(NullPointerException ex) {
+							
+						}
+						if(isNet == false)
+		    				JOptionPane.showMessageDialog(btnAccDeposit, "You don't have this type account !");
+		    				
+					}
 					
 				}
 				if(selectAccount.equals("Cheque")) {
-					
+					boolean isCheque = false;
+					if(txtDeposit.getText().length() !=0) {
+						try {
+							for(int i=0; i<10;i++) {
+				    			if(Menu.getTxtUserId() == account[i].getId()) {
+				    				if(account[i].getAccType() == selectAccount ) {
+				    					account[i].deposit(Double.parseDouble(txtDeposit.getText()));
+				    					isCheque = true;
+				    					break;
+				    				}
+				    				
+					    			
+				    			}
+							}
+						}catch(NullPointerException ex) {
+							
+						}
+						
+						if(isCheque == false)
+		    				JOptionPane.showMessageDialog(btnAccDeposit, "You don't have this type account !");
+		    				
+						
+					}
 				}
 				if(selectAccount.equals("Fixed")) {
-					
+					boolean isFixed = false;
+					if(txtDeposit.getText().length() !=0) {
+						try {
+							for(int i=0; i<10;i++) {
+				    			if(Menu.getTxtUserId() == account[i].getId()) {
+				    				if(account[i].getAccType() == selectAccount ) {
+				    					account[i].deposit(Double.parseDouble(txtDeposit.getText()));
+				    					isFixed = true;
+				    					break;
+				    				}				    									    			
+				    			}
+							}
+						}catch(NullPointerException ex) {
+							
+						}
+												
+					}
+					if(isFixed == false)
+	    				JOptionPane.showMessageDialog(btnAccDeposit, "You don't have this type account !");
+	    				
 				}
 			}
 		});
@@ -611,17 +832,13 @@ public class Menu extends JFrame {
 		JButton btnEnter = new JButton("Enter");
 		btnEnter.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
-				String UserIdLogin = String.valueOf(txtUserId);
-				
-				
-				
-									
-				//switchPanel(panelMenu);
+								
 				boolean isLogIn = false;
-				
 				String userId = txtUserId.getText();
 				String password = new String(txtPassword.getPassword());
+				
+				id = Integer.parseInt(userId);
+				
 				
 				StringBuilder notice = new StringBuilder();
 				if(userId.equals("")) {
@@ -634,7 +851,7 @@ public class Menu extends JFrame {
 					JOptionPane.showMessageDialog(null, notice.toString(),"Invalidation",JOptionPane.ERROR_MESSAGE);
 					return;
 				}
-				if(userId.equals("1111") && password.equals("2222")) {
+				if(userId.equals("1111") && password.equals("2222")||userId.equals("1007") && password.equals("0000")||userId.equals("7777") && password.equals("9999")) {
 					isLogIn = true;
 				}else {
 					JOptionPane.showMessageDialog(null, "Invalid User Id or Password!");
@@ -648,7 +865,6 @@ public class Menu extends JFrame {
 					layeredPane.repaint();
 					layeredPane.revalidate();			
 				}
-				//JOptionPane.showMessageDialog(null, "User Id"+id);
 			}
 		});
 		
@@ -685,6 +901,202 @@ public class Menu extends JFrame {
 		btnDeposit_1.setBounds(126, 105, 155, 23);
 		panelMenu.add(btnDeposit_1);
 		
+		JPanel panelWithdraw = new JPanel();
+		panelWithdraw.setBackground(new Color(153, 255, 204));
+		layeredPane.add(panelWithdraw, "name_869884386569200");
+		panelWithdraw.setLayout(null);
+		
+		JLabel lblNewLabel_5_1 = new JLabel("How much you want to Withdraw?");
+		lblNewLabel_5_1.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		lblNewLabel_5_1.setBounds(74, 11, 286, 22);
+		panelWithdraw.add(lblNewLabel_5_1);
+		
+		JComboBox cbBoxSelectAccWithdraw = new JComboBox();
+		cbBoxSelectAccWithdraw.setModel(new DefaultComboBoxModel(new String[] {"Saving", "Net Saving", "Cheque", "Fixed"}));
+		cbBoxSelectAccWithdraw.setBounds(93, 44, 232, 22);
+		panelWithdraw.add(cbBoxSelectAccWithdraw);
+		
+		txtWithdraw = new JTextField();
+		txtWithdraw.setFont(new Font("Tahoma", Font.BOLD, 18));
+		txtWithdraw.setEnabled(true);
+		txtWithdraw.setColumns(10);
+		txtWithdraw.setBounds(130, 77, 195, 45);
+		panelWithdraw.add(txtWithdraw);
+		txtWithdraw.setEnabled(true);
+		
+		JLabel lblNewLabel_6_1 = new JLabel("$");
+		lblNewLabel_6_1.setFont(new Font("Tahoma", Font.BOLD, 26));
+		lblNewLabel_6_1.setBounds(100, 77, 20, 45);
+		panelWithdraw.add(lblNewLabel_6_1);
+		
+		JButton btnWithdraw = new JButton("Withdraw");
+		btnWithdraw.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			
+				String selectAccount = String.valueOf(cbBoxSelectAccWithdraw.getSelectedItem());
+				if(selectAccount.equals("Saving")) {
+					boolean isSaving = false;
+					if(txtWithdraw.getText().length() !=0) {						
+						try {
+							for(int i=0; i<10;i++) {
+				    			if(Menu.getTxtUserId() == account[i].getId()) {
+				    				if(account[i].getAccType() == selectAccount ) {
+				    					account[i].withdrawal(Double.parseDouble(txtWithdraw.getText()));
+				    					isSaving = true;
+				    					break;
+				    				}
+				    			}
+				    			
+							}
+						}catch(NullPointerException ex) {
+							
+						}					
+									
+						if(isSaving ==false)
+						JOptionPane.showMessageDialog(null, "You don't have this type account !");
+					}
+				}
+				
+					
+				
+				
+				
+				if(selectAccount.equals("Net Saving")) {
+					boolean isNet = false;
+					if(txtWithdraw.getText().length() !=0) {
+						try {
+						for(int i=0; i<10;i++) {
+			    			if(Menu.getTxtUserId() == account[i].getId()) {
+			    				if(account[i].getAccType() == selectAccount ) {
+			    					account[i].withdrawal(Double.parseDouble(txtWithdraw.getText()));
+			    					isNet = true;
+			    					break;
+			    				}			    				
+			    			}
+						}
+					}catch(NullPointerException ex) {
+							
+						}
+						if(isNet == false)
+		    				JOptionPane.showMessageDialog(null, "You don't have this type account !");
+		    				
+					}
+					
+				}
+				if(selectAccount.equals("Cheque")) {
+					boolean isCheque = false;
+					if(txtWithdraw.getText().length() !=0) {
+						try {
+							for(int i=0; i<10;i++) {
+				    			if(Menu.getTxtUserId() == account[i].getId()) {
+				    				if(account[i].getAccType() == selectAccount ) {
+				    					account[i].withdrawal(Double.parseDouble(txtWithdraw.getText()));
+				    					isCheque = true;
+				    					break;
+				    				}			    				
+					    			
+				    			}
+							}
+						}catch(NullPointerException ex) {
+							
+						}
+						
+						if(isCheque == false)
+		    				JOptionPane.showMessageDialog(null, "You don't have this type account !");
+		    				
+						
+					}
+				}
+				if(selectAccount.equals("Fixed")) {
+					boolean isFixed = false;
+					if(txtWithdraw.getText().length() !=0) {
+						try {
+							for(int i=0; i<10;i++) {
+				    			if(Menu.getTxtUserId() == account[i].getId()) {
+				    				if(account[i].getAccType() == selectAccount ) {
+				    					account[i].withdrawal(Double.parseDouble(txtWithdraw.getText()));
+				    					isFixed = true;
+				    					break;
+				    				}				    									    			
+				    			}
+							}
+						}catch(NullPointerException ex) {
+							
+						}
+												
+					}
+					if(isFixed == false)
+	    				JOptionPane.showMessageDialog(null, "You don't have this type account !");
+	    				
+				}
+			}
+		});
+		btnWithdraw.setBounds(93, 147, 89, 23);
+		panelWithdraw.add(btnWithdraw);
+		
+		JButton btnBack_1 = new JButton("Back");
+		btnBack_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				layeredPane.removeAll();
+				layeredPane.add(panelMenu);
+				layeredPane.repaint();
+				layeredPane.revalidate();
+			}
+		});
+		btnBack_1.setBounds(236, 147, 89, 23);
+		panelWithdraw.add(btnBack_1);
+		
+		JButton btnWithdraw_1 = new JButton("Withdraw");
+		btnWithdraw_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				layeredPane.removeAll();
+				layeredPane.add(panelWithdraw);
+				layeredPane.repaint();
+				layeredPane.revalidate();
+				focus = 4;
+			}
+		});
+		btnWithdraw_1.setBounds(126, 139, 155, 23);
+		panelMenu.add(btnWithdraw_1);
+		
+		//--------- Set focus on TextField -------------------------------
+		 
+		txtUserId.addMouseListener(new MouseAdapter(){
+            @Override
+            public void mouseClicked(MouseEvent e){
+            		focus = 1;
+            		txtUserId.setEnabled(true);
+            		txtPassword.setEnabled(false);
+            		
+            		}
+        });
+		txtPassword.addMouseListener(new MouseAdapter() {
+			@Override
+            public void mouseClicked(MouseEvent e){
+				focus = 2;
+				txtUserId.setEnabled(false);
+				txtPassword.setEnabled(true);
+				
+    			
+			}
+
+		});
+		txtDeposit.addMouseListener(new MouseAdapter() {
+			@Override
+            public void mouseClicked(MouseEvent e){
+				focus = 3;				
+				txtDeposit.setEnabled(true);
+				
+			}
+		});
+		txtWithdraw.addMouseListener(new MouseAdapter() {
+			@Override
+            public void mouseClicked(MouseEvent e){
+				focus = 4;				
+				txtWithdraw.setEnabled(true);
+				
+			}
+		});
 		
 	}
 }

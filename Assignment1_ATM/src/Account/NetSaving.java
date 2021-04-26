@@ -2,12 +2,12 @@ package Account;
 
 public class NetSaving extends Account implements WithdrawalLimit {
 
-	private double rate;
+	private double rate ;
 	private double limit ;
 
 	
 	public NetSaving( ) {
-		setAccType("NetSaving");
+		setAccType("Net Saving");
 	}
 		
 	public NetSaving(double rate, double limit) {
@@ -15,7 +15,7 @@ public class NetSaving extends Account implements WithdrawalLimit {
 		setBalance(0);
 		this.rate = rate;
 		this.limit = limit;
-		setAccType("NetSaving");
+		setAccType("Net Saving");
 	}
 
 
@@ -32,22 +32,7 @@ public class NetSaving extends Account implements WithdrawalLimit {
 	
 
 
-	@Override
-	public void withdrawal(double amount) {
-		checkCash(); // check 20, 50 and 100 notes
-		withdrawalLimit(); // check monthly limit
-		if(amount < limit) {
-			if(getBalance() > amount) {
-				setBalance(getBalance() - amount);
-			}
-			else
-				System.out.println("The balance is not enough");
-		}
-		else
-			System.out.println("Withdraw over limit");
-		
 	
-	}
 	// input the body with Monthly parameter
 	@Override
 	public void withdrawalLimit() {

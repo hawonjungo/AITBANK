@@ -61,7 +61,7 @@ public abstract class Account {
 	public void deposit(double amount) {
 		if(amount>0) {
 			setBalance(getBalance() + amount);
-			JOptionPane.showMessageDialog(null, "Deposit success !" + getBalance());
+			JOptionPane.showMessageDialog(null, "Deposit success ! " + getBalance());
 		}
 		else {
 			JOptionPane.showMessageDialog(null, "Invalid value !");
@@ -73,9 +73,10 @@ public abstract class Account {
 	public void withdrawal(double amount) {			
 			if(getBalance() > amount) {
 				setBalance(getBalance() - amount);
+				JOptionPane.showMessageDialog(null, "Withdraw success ! " + getBalance());
 			}
 			else
-				System.out.println("The balance is not enough");
+				JOptionPane.showMessageDialog(null, "Your balance is low " + getBalance());
 				
 	}
 	public abstract void calculateInterestRate();

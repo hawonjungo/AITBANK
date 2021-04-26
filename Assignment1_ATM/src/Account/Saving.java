@@ -22,7 +22,7 @@ public class Saving extends Account implements WithdrawalLimit{
 		return rate;
 	}
 	// for developer changing the rate later
-	void setRate(double rate) {
+	public void setRate(double rate) {
 		this.rate = rate;
 	}
 	// show user ther withdrawal limit
@@ -34,23 +34,7 @@ public class Saving extends Account implements WithdrawalLimit{
 		this.limit = limit;
 	}
 	
-	
-	@Override
-	public void withdrawal(double amount) {
-		checkCash(); // check 20, 50 and 100 notes
-		withdrawalLimit(); // check monthly limit
-		if(amount < limit) {
-			if(getBalance() > amount) {
-				setBalance(getBalance() - amount);
-			}
-			else
-				System.out.println("The balance is not enough");
-		}
-		else
-			System.out.println("Withdraw over limit");
-		
-	
-	}
+
 
 	@Override
 	public void withdrawalLimit() {
